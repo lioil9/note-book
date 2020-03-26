@@ -5,5 +5,5 @@
 !*.md
 !*.png
 !*.sh
-!*.gitignore
+!.gitignore
 

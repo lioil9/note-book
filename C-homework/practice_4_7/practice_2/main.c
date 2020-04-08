@@ -9,7 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define SIZE 1
+#define SIZE 0
 #define ADDPOS 0
 
 typedef struct node {
@@ -104,11 +104,12 @@ void freeNode(Node *p) {
 
 int main(void) {
     Node *head = (Node *)malloc(sizeof(Node)); //创建头结点
-    Node *pre = head;//将头结点作为首元结点的前一个结点
+    //Node *pre = head;//将头结点作为首元结点的前一个结点
 
-    pre = initNode(pre, 1);
+    //pre = initNode(pre, 1);
     head->elem = SIZE;
-    printList(head);
+    head->next = NULL;
+    //printList(head);
     
 
     for (int i = 0; i < 100; i++) {

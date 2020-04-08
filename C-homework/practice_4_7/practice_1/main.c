@@ -8,7 +8,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#define SIZE 1
+#define SIZE 5
 #define ADDPOS 0
 
 
@@ -52,7 +52,7 @@ SeqList add(SeqList list, int elem, int pos) {
 
     //增加内存
     if (list.length == list.capacity) {
-        int* temp = (int *)realloc(list.head, (list.capacity << 1) * sizeof(int));
+        int* temp = (int *)realloc(list.head, (list.capacity <<= 1) * sizeof(int));
         
         if (!temp) {
             printf("内存分配失败！\n");
@@ -60,7 +60,6 @@ SeqList add(SeqList list, int elem, int pos) {
         }
         
         list.head = temp;
-        list.capacity <<= 1;
     }
 
     //插入位置及以后的元素依次后移一位
@@ -87,8 +86,8 @@ SeqList delete(SeqList list , int pos) {
         list.head[i] = list.head[i + 1];
     }
     //减少内存
-    if (list.length == list.capacity) {
-        int *temp = (int *)realloc(list.head, (list.capacity >> 1) * sizeof(int));
+    if (list.length <= (list.capacity >> 1)) {
+        int *temp = (int *)realloc(list.head, (list.capacity >>= 1) * sizeof(int));
 
         if (!temp) {
             printf("内存分配失败！\n");
@@ -96,7 +95,7 @@ SeqList delete(SeqList list , int pos) {
         }
 
         list.head = temp;
-        list.capacity >>= 1;
+        //list.capacity >>= 1;
     }
 
     list.length--;//表长度-1
@@ -106,16 +105,19 @@ SeqList delete(SeqList list , int pos) {
 
 int main(void) {
     SeqList list = initSeqList();
+    printf("内存%d\n", list.capacity);
     
-    for (int i = 0; i < 100; i++) {
+    for (int i = 0; i < 20; i++) {
         list = add(list, i, ADDPOS);
         printlist(list);
     }
+    printf("内存%d\n", list.capacity);
     
-    for (int i = 0; i < 100; i++) {
+    for (int i = 0; i < 20; i++) {
         list = delete(list, ADDPOS);
         printlist(list);
     }
+    printf("内存%d\n", list.capacity);
     
     free(list.head);
     list.head = NULL;

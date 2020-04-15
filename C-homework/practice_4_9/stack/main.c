@@ -101,7 +101,7 @@ int rpn(char* a) {
 
 
 int main(void) {
-    char a[] = "5 1 2 + 4 * + 3 -";
+    char a[] = "3 4 2 * + 5 3 * -";
     int r = rpn(a);
     printf("结果为%d\n", r);
     

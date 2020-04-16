@@ -31,18 +31,18 @@ BTree* initBTree(int data){
 
 //将结点插入到二叉树中，并且如果结点为NULL时新建结点
 BTree* insertBTree(BTree* *root, int n){
-    BTree *p = *root;
-    if(p == NULL){
+    if((*root) == NULL){
         *root = initBTree(n);
         return *root;
-    }else if(n < p->data){
+    }
+    if(n < (*root)->data){
         //当插入数据小于当前结点的值时指向左子结点
-        insertBTree(&p->lchild, n);
+        insertBTree(&(*root)->lchild, n);
     }else{
         //当插入数据大于当前结点的值时指向右子结点
-        insertBTree(&p->rchild, n);
+        insertBTree(&(*root)->rchild, n);
     }
-    return p;
+    return *root;
 }
 
 //查找二叉树中的元素
@@ -70,11 +70,10 @@ void middle_order(BTree* root){
 
 
 int main(void) {
-    BTree* root = (BTree*)malloc(sizeof(BTree));
-    root = NULL;
+    BTree* root = NULL;
     
     int temp;
-    int a[]={2,5,20,1,9,12,11,10};
+    int a[]={2,5,2,20,1,9,12,11,10};
     int size = sizeof(a)/sizeof(a[0]);
     for(int i=0; i<size; i++)insertBTree(&root, a[i]);
     
@@ -85,7 +84,7 @@ int main(void) {
     
     printf("请输入要查找的数：");
     scanf("%d", &temp);
-    if(searchBTree(root, temp))printf("%d在二叉树树中\n", temp);
+    if(searchBTree(root, temp))printf("%d在二叉树中\n", temp);
     else printf("%d不在二叉树中\n", temp);
     
     return 0;

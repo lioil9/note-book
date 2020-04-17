@@ -80,7 +80,7 @@ int is_empty(Stack* head) {
 /*
  新建一个栈，利用此栈来暂存先进入的元素，然后等当前元素推入栈后，再将之前的元素推入到当前的栈，从而使得先进入的元素最后在栈顶
  */
-Queue* enqueue(Queue* queue, int data){
+void enqueue(Queue* queue, int data){
     //新建一个栈
     Stack* tstack = init_stack();
     //判断当前栈是否为空，不为空时将当前栈元素推入另一个栈
@@ -96,7 +96,7 @@ Queue* enqueue(Queue* queue, int data){
             continue;
     }
     //最后得到与原来顺序相反的一个栈
-    return queue;
+    //return queue;
 }
 
 int dequeue(Queue* queue){

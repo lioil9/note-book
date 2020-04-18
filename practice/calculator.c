@@ -21,16 +21,13 @@ void calculator(int n){
         b = is_float(y);
         switch (n) {
             case 1:
-                c = a+b;
-                printf("%d + %d = %.0f\n", a, b, c);
+                printf("%d + %d = %d\n", a, b, a+b);
                 break;
             case 2:
-                c = a-b;
-                printf("%d - %d = %.0f\n", a, b, c);
+                printf("%d - %d = %d\n", a, b, a-b);
                 break;
             case 3:
-                c = a*b;
-                printf("%d * %d = %.0f\n", a, b, c);
+                printf("%d * %d = %.0f\n", a, b, a*b);
                 break;
             case 4:
                 c = (double)a/b;

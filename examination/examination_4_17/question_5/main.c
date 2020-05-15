@@ -22,7 +22,7 @@ int pop(Stack* head);
 int top(Stack* head);
 int is_full(Stack* head);
 int is_empty(Stack* head);
-Queue* enqueue(Queue* queue, int data); // 函数类型请自己考虑
+void enqueue(Queue* queue, int data); // 函数类型请自己考虑
 int dequeue(Queue* queue);
 
 

@@ -7,5 +7,6 @@
 !*.sh
 !*.jpg
 !*.emmx
+!*.html
 !.gitignore
 

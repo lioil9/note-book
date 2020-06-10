@@ -6,5 +6,6 @@
 !*.png
 !*.sh
 !*.jpg
+!*.emmx
 !.gitignore
 

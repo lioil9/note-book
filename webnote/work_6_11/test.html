@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>test</title>
+    <meta charset="utf-8">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            /* font-size: 16px; */
+        }
+
+        body {
+            background-image: url(http://by-image.oss-cn-shanghai.aliyuncs.com/Pre/drumkit/cover.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: color;
+            width: 1440px;
+            height: 800px;
+        }
+
+        .div1{
+            height: 400px;
+        }
+
+        .div2 {
+            background-color: aqua;
+            background-size: cover;
+            color: blue;
+            text-align: center;
+            margin-left: 10%;
+
+            width: 200px;
+            height: 200px;
+            display: inline-block;
+
+            /* letter-spacing: 10px; */
+            /* word-spacing: 20px; */
+        }
+
+        .div3 {
+            background-color: blueviolet;
+            display: inline-block;
+            text-align: center;
+
+            width: 200px;
+            height: 200px;
+            margin-left: 10%;
+        }
+        .buttonArea{
+            background-image: url(http://by-image.oss-cn-shanghai.aliyuncs.com/Pre/drumkit/cover.jpg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            /* background-attachment: local; */
+            height: 480px;
+            width: 800px;
+            /* margin-left: 100px; */
+            
+
+        }
+        .button{
+            width: 52px;
+            height: 44px;
+            /* background: transparent; */
+            margin-top: 180px;
+            margin-left: 9px;
+            font-size: medium;
+            font-style: oblique;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div1">
+        <form>
+            Name: <br>
+            <input type="text" name="name" value="name"> <br>
+            Code : <br>
+            <input type="text" name="code" value="code"> <br>
+            <br>
+            <input type="submit">
+            <input type="reset">
+            <br>
+        </form>
+    </div>
+    <div class="music">
+        <br>
+        <audio controls>
+            <source src="http://examples.banyuan.club/drumkit/sounds/clap.wav">
+            clap</audio>
+    </div>
+    <div class="div2">
+        <h1>标题</h1>
+    </div>
+    <div class="div3">
+        <h1>另一个标题</h1>
+    </div>
+    <div class="buttonArea">
+        <button class="button" style="margin-left: 110px;">A</button>
+        <button class="button">S</button>
+        <button class="button">D</button>
+        <button class="button">F</button>
+        <button class="button">G</button>
+    </div>
+</body>
+
+</html>

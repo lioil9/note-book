@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>float</title>
+
+    <style>
+        .container {
+            height: 600px;
+            width: 600px;
+            border: 1px solid black;
+            /* background-color: red; */
+            margin: auto;
+        }
+
+
+        .div1 {
+            background-color: aquamarine;
+            /* border: 1px solid black; */
+            margin-left: 1px;
+            right: 0px;
+
+            float: right;
+            /* clear: both; */
+        }
+
+        .bigger {
+            height: 300px;
+            width: 300px;
+            border: 1px solid black;
+            /* margin: 2px; */
+        }
+
+        .big {
+            height: 200px;
+            width: 200px;
+            border: 1px solid black;
+        }
+
+        .small {
+            height: 100px;
+            width: 100px;
+            border: 1px solid black;
+
+        }
+
+        .clearfixed::after{
+            content: "";
+            clear: both;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container ">
+        <div class="clearfixed">
+            <div class="div1 bigger"></div>
+            <div class="div1 big"></div>
+            <div class="div1 small"></div>
+        </div>
+        <div class="clear" style="font-family: 'Patua One', cursive; font-size: 30px;">We highly appreciate the
+            enthusiasm and creative talent of the people at
+            Legend!"</div>
+    </div>
+
+</body>
+
+</html>

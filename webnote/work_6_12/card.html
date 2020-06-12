@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>card</title>
+    <style>
+        .container {
+            height: 500px;
+            width: 500px;
+            margin: 0 auto;
+            border: 2px solid black;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .div1 {
+            background-color: red;
+            border: 2px solid black;
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            position: absolute;
+            top: 40px;
+        }
+
+        .right {
+            left: 28%;
+        }
+
+        .left {
+            right: 28%;
+        }
+
+        .bottom {
+            height: 150px;
+            width: 150px;
+            border-radius: 0%;
+            left: 110px;
+            top: 180px;
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="div1 left"></div>
+        <div class="div1 right"></div>
+        <div class="div1 bottom"></div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>百度一下，你就知道</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #container {
+            position: relative;
+        }
+
+        .top_left {
+            z-index: 10;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            padding-left: 24px;
+            height: 60px;
+
+        }
+
+        .top_left a {
+            display: inline-block;
+            margin-right: 31px;
+            margin-top: 19px;
+            font-size: 13px;
+            line-height: 23px;
+            font-family: "PingFang SC", Arial, "Microsoft YaHei", sans-serif;
+            text-decoration: none;
+        }
+
+        a:link {
+            color: #222;
+        }
+
+        a:visited {
+            color: #222;
+        }
+
+        a:hover {
+            color: blue;
+        }
+
+        .top_right {
+            z-index: 10;
+            position: absolute;
+            right: 0;
+            top: 0;
+            padding-right: 24px;
+            height: 60px;
+        }
+
+        .top_right a,
+        span {
+            margin-left: 32px;
+            margin-top: 19px;
+            font-size: 13px;
+            line-height: 23px;
+            display: inline-block;
+            position: relative;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .search {
+            z-index: 0;
+            position: relative;
+            height: 185.41px;
+            width: 654px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .search img {
+            position: absolute;
+            height: 129px;
+            width: 270px;
+            left: 50%;
+            bottom: 0%;
+            transform: translateX(-50%);
+        }
+
+        .searchinput{
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            /* height: 44px; */
+            width: 546px;
+        }
+
+        .searchinput input{
+            position: relative;  
+            border: 2px solid blue;
+            border-radius: 10px;
+            font-size: 22px;
+            height: 44px;
+            width: 546px;
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="container">
+        <div class="top_left">
+            <a href="" target="_blank">新闻</a>
+            <a href="http://www.hao123.com" target="_blank">hao123</a>
+            <a href="" target="_blank">地图</a>
+            <a href="" target="_blank">视频</a>
+            <a href="" target="_blank">贴吧</a>
+            <a href="http://xueshu.baidu.com" target="_blank">学术</a>
+            <a href="http://xueshu.baidu.com" target="_blank">更多</a>
+        </div>
+        <div class="top_right">
+            <a href="" style="color: red;">抗击肺炎</a>
+            <span>设置</span>
+            <a href="">登录</a>
+        </div>
+        <div class="search">
+            <img src="/Users/edz/work/note-book/webnote/work_6_12/baidusearch/百度.png" alt="百度">
+        </div>
+        <form id="form" action="">
+            <span class="searchinput">
+                <input type="text" >
+            </span>
+            
+        </form>
+    </div>
+
+</body>
+
+</html>

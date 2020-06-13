@@ -8,5 +8,6 @@
 !*.jpg
 !*.emmx
 !*.html
+!*.css
 !.gitignore
 

@@ -1,0 +1,158 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* height: 100%; */
+    min-width: 1250px;
+    min-height: 600px;
+}
+
+#container {
+    position: relative;
+    background-color: white;
+    min-width: 1250px;
+    min-height: 600px;
+}
+
+#head{
+    position: relative;
+    margin: 0 auto;
+}
+
+.font_style{
+    font-family: "PingFang SC", Arial, "Microsoft YaHei", sans-serif;
+    text-decoration: none;
+    font-size: 13px;
+    line-height: 23px;
+    color: #222;
+    display: inline-block;
+   
+}
+
+.top_left {
+    z-index: 10;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    padding-left: 24px;
+    height: 60px;
+}
+
+.top_left a {
+    margin-right: 26px;
+    margin-top: 19px;
+}
+
+a:link {
+    color: #222;
+}
+
+a:visited {
+    color: #222;
+}
+
+a:hover {
+    color: blue;
+}
+
+.top_right {
+    z-index: 10;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding-right: 24px;
+    height: 60px;
+}
+
+.top_right a,
+span {
+    margin-top: 19px;
+    margin-left: 32px;
+    display: inline-block;
+    position: relative;
+}
+
+.search {
+    z-index: 0;
+    position: relative;
+    height: 185.41px;
+    width: 654px;
+    left: 25%;
+}
+
+.search img {
+    position: absolute;
+    /* bottom: 15px!important; */
+    height: 129px;
+    width: 270px;
+    bottom: 10px;
+    left: 50%;
+    margin-left: -135px;
+}
+
+#form{
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0;
+    left: 25%;    
+    /* top: 0; */
+    /* width: 654px; */
+    height: 44px;
+}
+
+.search_input{
+    position: relative;
+}
+
+.search_input input{
+    vertical-align: top;
+    border: 2px solid rgba(160, 159, 159, 0.89);
+    border-radius: 10px 0px 0px 10px;
+    font-size: 22px;
+    outline:none;
+    height: 40px;
+    width: 542px;
+    margin: 0;
+    padding: 0px;
+    
+
+}
+
+.search_input input:hover{
+    border: 2px solid grey;
+}
+
+.search_input input:focus{
+    border: 2px solid blue;
+    text-indent: 15px;
+}
+
+.search_btn{
+    position: relative;
+    margin-left: -2px;
+    
+}
+
+.search_btn input{
+    vertical-align: top;
+    cursor: pointer;
+    height: 44px;
+    width: 108px;
+    line-height: 45px;
+    background-color: #4e6ef2;
+    border-radius: 0 10px 10px 0;
+    border: none;
+    box-shadow: none;
+    font-size: 17px;
+    color: white;
+    outline: none;
+    margin: 0;
+    padding: 0px;
+}
+
+.search_btn input:hover{
+    background-color: #4662d9;
+}

@@ -9,5 +9,6 @@
 !*.emmx
 !*.html
 !*.css
+!*.txt
 !.gitignore
 

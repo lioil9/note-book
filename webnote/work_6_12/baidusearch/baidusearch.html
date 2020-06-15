@@ -4,134 +4,9 @@
 <head>
     <meta charset="utf-8">
     <title>百度一下，你就知道</title>
-    <style>
-        #head {
-            position: relative;
-            background-color: white;
-            min-width: 1250px;
-            min-height: 600px;
-        }
-
-        .top {
-            margin-top: 20px;
-            margin-left: 15px;
-            display: block;
-        }
-
-
-        .top_left a {
-            float: left;
-            margin-right: 30px;
-        }
-
-        .top::after {
-            content: "";
-            clear: both;
-        }
-
-        .font_style {
-            font-family: "PingFang SC", Arial, "Microsoft YaHei", sans-serif;
-            text-decoration: none;
-            font-size: 13px;
-            line-height: 23px;
-            color: #222;
-        }
-
-        .top_right a {
-            float: right;
-            margin-right: 30px;
-        }
-
-
-        a:link {
-            color: #222;
-        }
-
-        a:visited {
-            color: #222;
-        }
-
-        a:hover {
-            color: blue;
-        }
-
-        .search {
-            position: absolute;
-            margin-top: 30px;
-            left: 50%;
-            transform: translate(-50%);
-        }
-
-        .search img {
-            position: relative;
-            height: 129px;
-            width: 270px;
-            left: 50%;
-            transform: translate(-50%);
-        }
-
-        .search {
-            height: 220px;
-            width: 700px;
-        }
-
-        #form {
-            list-style: none;
-            margin: 20px;
-            padding: 0;
-            font-size: 0;
-            display: block;
-            height: 44px;
-            left: 50%;
-        }
-
-        .search_input input {
-            vertical-align: top;
-            border: 2px solid rgba(160, 159, 159, 0.89);
-            border-radius: 10px 0px 0px 10px;
-            font-size: 16px;
-            outline: none;
-            height: 40px;
-            width: 542px;
-            margin: 0;
-            padding: 0px;
-            text-indent: 15px;
-        }
-
-        .search_input input:hover {
-            border: 2px solid grey;
-        }
-
-        .search_input input:focus {
-            border: 2px solid blue;
-            text-indent: 15px;
-        }
-
-        .search_btn {
-            margin-left: -2px;
-        }
-
-        .search_btn input {
-            vertical-align: top;
-            cursor: pointer;
-            height: 44px;
-            width: 108px;
-            line-height: 45px;
-            background-color: #4e6ef2;
-            border-radius: 0 10px 10px 0;
-            border: none;
-            box-shadow: none;
-            font-size: 17px;
-            color: white;
-            outline: none;
-            margin: 0;
-            padding: 0px;
-        }
-
-        .search_btn input:hover {
-            background-color: #4662d9;
-        }
-    </style>
+    <link rel="icon" href="baidu.ico">
+    <link rel="stylesheet" href="./baidusearch.css" type="text/css">
+    
 </head>
 
 <body>
@@ -151,11 +26,15 @@
                     style="background-color: #4e6ef2; color: white; padding-left: 10px; padding-right: 10px; border-radius: 5px;"
                     href="">登录</a>
                 <a class="font_style" href="">设置</a>
-                <a class="font_style" href="https://voice.baidu.com/act/newpneumonia/newpneumonia" target="_blank" style="color: red;">抗击肺炎</a>
+                <a id="btn1" class="font_style" href="https://voice.baidu.com/act/newpneumonia/newpneumonia" target="_blank">抗击肺炎</a>
             </div>
+            <div class="top_clear"></div>
         </div>
         <div class="search">
-            <img class="logo" src="./百度.png" alt="">
+            <a href="https://www.baidu.com/s?wd=%e5%ae%9d%e8%97%8f%e5%9b%9b%e5%b7%9d&sa=ire_dl_gh_logo&rsv_dl=igh_logo_pcs">
+                <img class="logo" src="./baiduimge.gif" alt="百度">
+            </a>
+            
             <form id="form" action="">
                 <span class="search_input">
                     <input type="text">

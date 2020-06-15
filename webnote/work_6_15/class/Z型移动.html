@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Z型移动</title>
+    <style>
+        .container {
+            position: absolute;
+            background-color: aquamarine;
+            height: 200px;
+            width: 200px;
+            /* margin: auto; */
+            left: 50%;
+            top: 50%;
+            transform: translateY(-50%) translateX(-50%);
+        }
+
+        .block {
+            background-color: blue;
+            width: 30px;
+            height: 30px;  
+            position: relative;
+            animation: moving 5s 5 alternate forwards; 
+        }
+
+
+        @keyframes moving{
+            0% {
+                left: 0px;
+                top: 0px;
+            }
+            33%{
+                left: 170px;
+                top: 0px;
+            }
+            
+            66%{
+                left: 0px;
+                top: 170px;
+            }
+            100%{
+                left: 170px;
+                top: 170px;
+            }
+
+
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="block"></div>
+
+    </div>
+
+
+</body>
+
+</html>

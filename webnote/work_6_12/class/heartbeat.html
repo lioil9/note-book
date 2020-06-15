@@ -12,6 +12,10 @@
             border: 1px solid rgb(199, 31, 31);
             position: relative;
         }
+        .heart{
+            animation: heartbeat 1s linear infinite alternate;
+        }
+
 
         .div1 {
             background-color: red;
@@ -38,14 +42,25 @@
             top: 124px;
             transform: rotate(45deg);
         }
+
+        @keyframes heartbeat {
+            from {}
+
+            to {
+                transform: scale(1.1);
+            }
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <div class="div1 left"></div>
-        <div class="div1 right"></div>
-        <div class="div1 bottom"></div>
+        <div class="heart">
+            <div class="div1 left"></div>
+            <div class="div1 right"></div>
+            <div class="div1 bottom"></div>
+        </div>
+
     </div>
 
 </body>

@@ -3,6 +3,7 @@
             background-color: white;
             min-width: 1250px;
             min-height: 600px;
+            height: 100vh;
         }
 
         .top {

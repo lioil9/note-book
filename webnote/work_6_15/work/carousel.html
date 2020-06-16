@@ -14,7 +14,7 @@
             position: absolute;
             width: 500px;
             height: 300px;
-            overflow: scroll;
+            overflow: hidden;
             border: 2px solid black;
             left: 50%;
             top: 50%;
@@ -33,7 +33,7 @@
             height: 100%;
             float: left;
             position: relative;
-            animation: move 5s infinite;  
+            animation: move 12s infinite;  
         }
 
         .container img::after{
@@ -68,6 +68,41 @@
             width: 20px;
             top: 50%;
         }
+
+        .dot{
+            position: absolute;
+            height: 6px;
+            /* width: 50px; */
+            background-color: rgb(0, 0, 0, 0.6);
+            bottom: 0px;
+            transition: width 8s;
+            animation: move_dot 12s infinite alternate forwards;
+        }
+
+        @keyframes move_dot{
+            0%{
+                width: 0px;
+                /* left: 0%; */
+            }
+            25%{
+                /* left: 30%; */
+                width: 30%;
+            }
+            50%{
+                /* left: 55%; */
+                width: 55%;
+            }
+            75%{
+                /* left: 80%; */
+                width: 80%;
+            }
+            100%{
+                /* left: 100%; */
+                width: 100%;
+            }
+        }
+
+
         
     </style>
 </head>
@@ -81,6 +116,7 @@
             <img src="img/4.jpg" alt="4">
             <img src="img/1.jpg" alt="1">
         </div>
+        <div class="dot"></div>
         <input class="prevBtn" type="button" style="left: 0;"></input>
         <input class="nextBtn" type="button" style="right: 0;"></input>
     </div>

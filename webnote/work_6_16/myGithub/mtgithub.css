@@ -1,121 +1,510 @@
-*{
+* {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
 }
-body{
+
+body {
     box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #24292e;
+    background-color: #fff;
 }
-.border-bottom{
+
+a {
+    color: #0366d6;
+    text-decoration: none;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.border-bottom {
     border-bottom: 1px solid #e1e4e8;
 }
 
+.text-bold {
+    font-weight: 600;
+}
 
-.header{
+.form-style {
+    min-height: 34px;
+    padding: 6px 8px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #24292e;
+    vertical-align: middle;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    border: 1px solid #d1d5da;
+    border-radius: 3px;
+    outline: none;
+    box-shadow: inset 0 1px 2px rgba(27, 31, 35, .075);
+}
+
+.btn {
+    position: relative;
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    background-repeat: repeat-x;
+    background-position: -1px -1px;
+    background-size: 110% 110%;
+    border: 1px solid rgba(27, 31, 35, .2);
+    border-radius: .25em;
+    appearance: none;
+}
+
+.java-color{
+    background-color: #b07219;
+}
+
+.shell-color{
+    background-color: #89e051;
+}
+
+.octicon-center{
+    vertical-align: text-top;
+}
+
+.header {
     width: 100%;
     height: 53px;
     max-height: 53px;
     background-color: #24292e;
-    color: hsla(0,0%,100%,.7);
+    color: hsla(0, 0%, 100%, .7);
     display: block;
+    font-size: 14px;
+    line-height: 1.5;
     position: relative;
     padding-left: 16px;
     padding-right: 16px;
 }
-.header-item{
+
+.octicon {
+    filter: invert(100%);
+}
+
+
+.header-link {
+    display: block;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: 600;
+    color: #fff;
+    white-space: nowrap;
+}
+
+.header-item {
     margin-right: 16px;
 }
-.header-logo{
+
+.header-logo {
     height: 100%;
     width: 32px;
     float: left;
 }
 
-.icon-link{
-    filter: invert(100%);
+.icon-link {
     height: 32px;
     width: 32px;
-    display: block;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
 }
-.header-photo{
+
+.header-photo {
     width: 32px;
     height: 100%;
     float: right;
 }
-.header-more{
+
+.photo-link {
+    width: 32px;
+    height: 22.2px;
+}
+
+.photo-linkicon {
+    width: 100%;
+    height: 100%;
+}
+
+.user-photo {
+    display: inline-block;
+    border-radius: 3px;
+    line-height: 1;
+    vertical-align: middle;
+    /* border-style: none; */
+}
+
+.header-more {
     width: 28px;
     height: 100%;
     float: right;
 }
-.header-bell{
+
+.more-link {
+    width: 28px;
+    height: 21px;
+}
+
+.more-linkicon {
+    width: 100%;
+    height: 100%;
+}
+
+.dropdown-caret {
+    float: right;
+    width: 0px;
+    height: 0px;
+    content: "";
+    border-top-style: solid;
+    border-top-width: 4px;
+    border-right: 4px solid transparent;
+    border-bottom: 0 solid transparent;
+    border-left: 4px solid transparent;
+    color: white;
+}
+
+.header-bell {
     width: 16px;
     height: 100%;
     float: right;
-    color: red;
 }
-.header-middle{
+
+.bell-link {
+    height: 16px;
+    width: 16px;
+}
+
+.header-middle {
     min-width: 200px;
     display: inline-block;
     height: 100%;
-    color: red;
     /* visibility: hidden; */
 }
-.header-.middle::after{
+
+.header-search {
+    width: 300px;
+    height: 28px;
+    float: left;
+}
+
+.header-search form {
+    width: 100%;
+    height: 100%;
+}
+
+.header-search-input {
+    height: 100%;
+    width: 100%;
+    padding: 6px 8px;
+    /* background: none; */
+    box-shadow: none;
+    text-transform: none;
+    border-radius: 3px;
+    outline: none;
+    background-color: #3f4448;
+    font-size: inherit;
+    color: inherit;
+    border: 0;
+}
+
+.header-select {
+    float: left;
+    width: 330px;
+    height: 100%;
+}
+
+.header-select a {
+    float: left;
+    margin-right: 16px;
+    text-decoration: none;
+    line-height: 100%;
+}
+
+.header-.middle::after {
     content: "";
     clear: both;
     display: block;
 }
 
-.main{
+.main {
     width: 100%;
     height: 100vh;
     background-color: #f6f8fa;
 }
 
-.left{
+.left {
     width: 25%;
     height: 100%;
     float: left;
     max-width: 350px;
     border-right: 1px solid #e1e4e8;
     background-color: white;
-    
 }
-.left-content{
-    width: auto;
+
+.left-content {
+    width: 100%;
     height: 100%;
     padding: 0 24px 0 24px;
 }
 
-.right{
+.left-repos {
+    margin-top: 32px;
+    margin-bottom: 16px;
+}
+
+.left-repos-title {
+    font-size: 14px;
+    margin-bottom: 4px;
+    height: 28px;
+    line-height: 29px;
+}
+
+.left-repos-btn {
+    float: right;
+    background-image: linear-gradient(-180deg, #34d058, #28a745 90%);
+    text-decoration: none;
+    color: white;
+    padding: 3px 10px;
+    font-size: 12px;
+    background-color: #28a745;
+    height: 28px;
+    text-align: center;
+}
+
+
+.left-search-repo {
+    margin-top: 8px;
+    margin-bottom: 16px;
+}
+
+.left-input {
+    width: 100%;
+    font-size: 14px;
+}
+
+.left-repos-list {
+    list-style: none;
+    width: 100%;
+}
+
+.public-repo {
+    margin-bottom: 8px;
+}
+
+
+.octicon-repolist {
+    margin-right: 8px;
+    color: #6a737d;
+    fill: currentColor;
+}
+
+.left-info {
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.left-info-title {
+    font-size: 14px;
+    padding-top: 16px;
+    margin-bottom: 4px;
+    border-top: 1px solid #e1e4e8;
+}
+
+.left-info-btn {
+    margin-right: 8px;
+    padding: 3px 10px;
+    font-size: 12px;
+    line-height: 20px;
+    background-color: #fff;
+}
+
+.right {
     width: 25%;
     height: 100%;
     float: right;
     max-width: 350px;
-}  
-.right-content{
+}
+
+.right-content {
     width: 100%;
     height: 100%;
     padding-top: 32px;
     padding-right: 16px;
 }
 
-.middle{
+.right-title {
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.explore-repos {
+    padding: 8px 0px;
+    margin: 8px 0px;
+}
+
+.explore-repos a {
+    font-size: 12px;
+    color: #24292e;
+}
+
+.explore-repos p {
+    font-size: 12px;
+    color: #586069;
+    margin-bottom: 8px;
+}
+
+.repo-language-color {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+.program-info{
+    font-weight: 400;
+    font-size: 12px;
+    margin-right: 8px;
+    color: #586069;
+}
+.octicon-star{
+    fill: currentColor
+}
+.explore-link{
+    font-size: 12px;
+    margin-bottom: 16px;
+    color: #586069;
+}
+
+.middle {
     height: 100vh;
     width: auto;
     overflow: hidden;
+    padding: 16px 16px 0px 16px;
 }
 
-.middle-content{
-    height: 100vh;
-    max-width: 1400px;
-    margin: 0 auto;  
+.middle-content {
+    height: 100%;
+    margin: 0 auto;
 }
 
-.middle::after{
+.tips{
+    font-size: 12px;
+    margin-top: 24px;
+    color: #586069;
+}
+.octicon-tips{
+    vertical-align: text-bottom;
+    color: #586069;
+    fill: currentColor;
+}
+.octicon-rss{
+    margin-right: 4px;
+}
+.subscribe{
+    display: inline-block;
+    color: #586069;
+    margin: 8px 0px;
+}
+.fork{
+    padding: 16px  0px;
+}
+
+.user{
+    margin-right: 16px;
+    overflow: hidden;
+}
+.user-link{
+    display: inline-block;
+    height: 32px;
+}
+.user-active{
+    display: inline-block;
+    width: 100%;
+}
+.user-active-info{
+    align-items: baseline;
+}
+
+.user-active-info a{
+    color: #242947;
+}
+.active-time{
+    margin-left: 4px;
+    color: #6a737d;
+    font-size: 12px;
+}
+.user-active-repos{
+    padding: 16px;
+    margin-top: 8px;
+    background-color: #fff;
+    border: 1px solid #d1d5da;
+    border-radius: 3px;
+}
+.repos-name a{
+    line-height: 1.25;
+    color: #24292e;
+
+}
+.repos-button{
+    height: 36px;
+    float: right;
+}
+.repos-button button{
+    line-height: 1.25;
+    font-size: 16px;
+    margin-left: 8px;
+    margin-bottom: 8px;
+    padding: 3px 10px;
+    font-size: 12px;
+    line-height: 20px;
+    color: #24292e;
+    background-color: #eff3f6;
+    background-image: linear-gradient(-180deg,#fafbfc,#eff3f6 90%);
+}
+.octicon-btn-star{
+    display: inline-block;
+    vertical-align: text-top;
+    margin-right: 4px;
+    fill: currentColor;
+    line-height: 20px;
+}
+.repos-info{
+    margin-top: 4px;
+    color: #586069;
+    word-break: break-word;
+}
+.language{
+    font-size: 12px;
+    color: #586069;
+}
+
+.program-detail{
+    font-size: 12px;
+    margin-top: 8px;
+    margin-bottom: 0;
+    color: #586069;
+}
+
+.follow{
+    padding: 16px 0px;
+}
+
+
+
+.middle::after {
     content: "";
     clear: both;
     display: block;

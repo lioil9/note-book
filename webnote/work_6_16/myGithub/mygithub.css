@@ -397,7 +397,10 @@ p {
 
 .middle-content {
     height: 100%;
-    margin: 0 auto;
+    /* margin: 0 auto; */
+}
+.middle-main{
+    width: 100%;
 }
 
 .tips{
@@ -420,6 +423,7 @@ p {
 }
 .fork{
     padding: 16px  0px;
+    display: flex;
 }
 
 .user{
@@ -500,9 +504,41 @@ p {
 
 .follow{
     padding: 16px 0px;
+    display: flex;
+}
+.repos-container{
+    display: flex;
+}
+.width-full{
+    width: 100%;
+    margin-left: 4px;
+}
+.follow-repos-name{
+    line-height: 1.25;
+    margin-right: 4px;
 }
 
+/* .footer{
+    width: 100%;
+    margin: 32px 0px;
+    display: flex;
+    /* max-width: none; */
+} */
 
+/* .footer-logo{
+    margin-right: 32px;
+    width: 33.33333%;
+
+} */
+/* .home-page{
+    display: flex;
+}
+.octicon-mark--github{
+    margin-right: 8px;
+    float: left;
+    vertical-align: text-bottom;
+    color: #c6cbd1;
+} */
 
 .middle::after {
     content: "";

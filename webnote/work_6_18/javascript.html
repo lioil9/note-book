@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+
+<html>
+    <div class="main">
+
+    
+    </div>
+
+    <button onclick="ajax()">
+        ajax
+    </button>
+    
+    
+    <button onclick="test()">
+        test
+    </button>
+    <!-- <div> -->
+
+        <!-- <div class="test" id="test"> -->
+            <!-- <div class='test' id='test-wirte'></div> -->
+            <!-- 查看节点 -->
+            <!-- <input type="text" id="input" value="123" class='input-test'> -->
+    
+            <!-- <div id='main'> -->
+                <!-- test -->
+                <!-- <div class="content red"></div>
+    
+                <div class="content"></div>
+    
+                <div class="content red"></div>
+            </div>
+    
+            <div id="parent">
+    
+            </div>
+        </div>
+    </div> -->
+    
+    <style>
+    
+        .content{
+            width: 100px;
+            height: 20px;
+        }
+    
+        .red{
+    
+            background-color: red;
+    
+        }
+    </style>
+
+<script src="./jquery-3.5.1.js"></script>
+
+<script>
+
+    /* 引用传递 */
+
+    // let a = 10;
+
+    // let b = a;
+
+    // console.log(a-1);
+
+    // console.log(b);
+
+    // let obj1 = { a: 10};
+
+    // let obj2 = obj1;
+
+    // obj1.a = 8;
+
+    // console.log('obj1',obj1);
+
+    // console.log('obj2',obj2);
+
+    // console.log(obj1 === obj2);
+
+    // console.log(Math.max(1,2,3,4,5));
+
+    // console.log(parseInt('hello'));
+
+    // console.log('hello'.length);
+
+    // console.log("hello".charAt(0));
+
+    // console.log("hello, world".replace("world", "mars"));
+
+    // console.log("hello".toUpperCase());
+
+    // console.log(Boolean(''));
+
+    // let str = '';
+
+    // if(str){
+    //     console.log('in');
+    // }
+
+    //null表示"没有对象"，即该处不应该有值。
+    //undefined表示"缺少值"，就是此处应该有一个值，但是还没有定义。
+
+    // var obj = {
+    //     name: "Carrot",
+    //     details: {
+    //             color: "orange",
+    //             size: 12
+    //     }
+    // }
+
+    // console.log(obj.details.size);
+
+    // var a = ["dog", "cat", "hen"];
+
+    // console.log(a.length);
+
+    // a.push('monkey');
+
+    // console.log(a);
+
+    // function add(x, y) {
+
+    //     var total = x + y;
+    //     return total;
+    // }
+
+    // console.log(add(2,2));
+
+    // Math.max(1,23,4,5,44);
+
+    // function add() {
+
+    //     var sum = 0;
+
+    //     for (var i = 0, j = arguments.length; i < j; i++) {
+    //         sum += arguments[i];
+    //     }
+
+    //     return sum;
+    // }
+
+    // console.log(add(1,2,3,4,56))
+
+    // function main(){
+
+    //     let a = 0;
+    //     while( a < 10 ){
+
+    //         a++;
+    //     }
+
+    //     console.log(a);
+    // }
+
+    // function main(val){
+
+    //     switch (val) {
+    //         case 'case1':
+                
+    //             console.log('we are in case1');
+    //             break;
+
+    //         case 'case2':
+                
+    //             console.log('we are in case2');
+    //             break;
+    //         default:
+    //             break;
+    //     }
+    // }
+
+    // main('case2');
+
+    // for (let i = 0; i < 5; i++) {
+    //     console.log(i);
+    // }
+
+    /* DOM */
+
+    // let ele = document.getElementById('test');
+
+    // console.log('ele ===>', ele);
+    // let eles = document.getElementsByClassName('test');
+
+    // let children = ele.getElementsByTagName('div');
+
+    // console.log(children);
+
+    // let elementByCssId = document.querySelector('#test');
+
+    // console.log(elementByCssId);
+
+    // let elementByCssClass = document.querySelector('.test')
+
+    // console.log(elementByCssClass);
+
+    // let inputEle = document.getElementById('input');
+
+	// let val = inputEle.getAttribute('value');
+
+    // console.log(val);
+
+    // inputEle.setAttribute('value','test');
+
+    // let mainEle = document.getElementById('main');
+	// let childrenNodes = mainEle.childNodes;
+
+    // console.log(childrenNodes);
+
+    // for(let i = 0; i< childrenNodes.length;i++){
+
+    //     if(childrenNodes[i].nodeType === 1 && childrenNodes[i].className.includes('red')){
+            
+    //         childrenNodes[i].style.backgroundColor = 'yellow'
+    //     }
+    // }
+
+    // document.getElementById('test-wirte').innerHTML = 'banyuan';
+
+    // var para = document.createElement('p');
+	
+	// var parent = document.getElementById('parent');
+	
+	// parent.appendChild(para);
+	
+	// para.innerHTML = 'hello';
+
+    // var txt = document.createTextNode(' world');
+	
+    // para.appendChild(txt);
+    
+    // var table = document.createElement("table");
+	// table.border = 1;
+	// var tbody = document.createElement("tbody");
+    // table.appendChild(tbody);
+    
+    
+    // tbody.insertRow(0);
+    
+	// tbody.rows[0].insertCell(0);
+    // tbody.rows[0].cells[0].appendChild(document.createTextNode("Cell 1, 1"));
+    
+	// tbody.rows[0].insertCell(1);
+    // tbody.rows[0].cells[1].appendChild(document.createTextNode("Cell 2, 1"));
+    
+    // tbody.insertRow(1);
+    
+	// tbody.rows[1].insertCell(0);
+    // tbody.rows[1].cells[0].appendChild(document.createTextNode("Cell 1, 2"));
+    
+    // tbody.rows[1].insertCell(1);
+    // tbody.rows[1].cells[1].appendChild(document.createTextNode("Cell 2, 2"));
+    
+    // document.body.appendChild(table);
+    // let a;
+
+    // {
+    //     let a = 1;
+    //     var b = 2;
+    // }
+
+    // console.log(a); 
+    // console.log(b); 
+
+    // var obj = [];
+
+    // for(var i=0;i<100;i++){
+
+    //     obj[i] = function(){
+
+    //         console.log(i)
+    //     }
+    // }
+
+    // obj[2]();
+
+    // const a = 0;
+
+    /* BOM */
+    // alert(123);
+
+    // let flag = confirm('确定么？');
+
+    // console.log(flag);
+
+    // let text = prompt('请输入一段文字','...');
+
+    // console.log(text);
+
+    // id选择器
+    // console.log($('#input').val())
+
+    // let input = document.getElementById('input')
+
+    // console.log(input.getAttribute('value'));
+
+    // // 类选择器
+    // $('.test')
+
+    // 层级选择器
+    // 子元素
+    // $('.test > div');
+
+    // 后代
+    // $(".test div");
+
+    //过滤选择器
+    // $('div:empty');
+
+    // $("div:contains('123')");
+    
+
+    // dom操作
+
+    // var div = $("<div>我是文本节点</div>")
+    // $('#test').append(div);
+
+    // document.getElementById('test').appendChild(
+    //     document.createElement('div')
+    //     .appendChild(document.createTextNode('我是文本节点'))
+    // )
+
+    /* ajax */
+    function ajax(){
+
+        $.ajax({
+            type : "POST",
+            async : true,
+            url : 'http://192.168.10.73:10001/banyuan/ajax',
+            data : {status:'time'},
+            success : function(result) {
+
+                $('.main').html("<span>成功！</span>");
+            },
+            error : function(error){
+                
+                $('.main').html("<span>失败！</span>");
+            }
+            });
+    }
+
+
+    function test(){
+
+        console.log(1);
+    }
+
+</script>
+</html>

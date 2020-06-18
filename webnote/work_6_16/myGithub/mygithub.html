@@ -23,7 +23,7 @@
         </div>
         <!-- 右侧用户头像 -->
         <div class="header-photo">
-            <div class="header-link photo-link">
+            <div class="header-link photo-link white-color gray-hover">
                 <div class="photo-linkicon">
                     <img alt="@lioil9" width="20" height="20" style="overflow: hidden;"
                         src="https://avatars3.githubusercontent.com/u/62093310?s=60&amp;v=4" class="user-photo">
@@ -32,8 +32,8 @@
             </div>
         </div>
         <!-- 加号更多 -->
-        <div class="header-item header-more ">
-            <div class="header-link more-link gray-hover">
+        <div class="header-item header-more">
+            <div class="header-link more-link gray-hover white-color">
                 <div class="more-linkicon">
                     <svg class="octicon octicon-plus octicon-center" viewBox="0 0 16 16" version="1.1" width="16"
                         height="16" aria-hidden="true">
@@ -47,7 +47,7 @@
         </div>
         <!-- 提醒部分 -->
         <div class="header-item header-bell">
-            <a class="header-link bell-link gray-hover" href="">
+            <a class="header-link bell-link gray-hover white-color" href="">
                 <svg class="octicon octicon-bell" viewBox="0 0 16 16" version="1.1" width="16" height="16"
                     aria-hidden="true">
                     <path
@@ -60,7 +60,7 @@
             </a>
         </div>
         <!-- 输入框和功能 -->
-        <div class="header-item header-middle">
+        <div class="header-item header-middle" id="middle-input">
             <!-- 输入框部分 -->
             <div class="header-item header-link header-search ">
                 <form class="header-form" action="">
@@ -69,11 +69,11 @@
             </div>
             <!-- 功能选择 -->
             <div class="header-select">
-                <a class="header-link gray-hover" href="">Pull requests</a>
-                <a class="header-link gray-hover" href="">
+                <a class="header-link gray-hover white-color" href="">Pull requests</a>
+                <a class="header-link gray-hover white-color" href="">
                     Issues</a>
-                <a class="header-link gray-hover" href="">Marketplace</a>
-                <a class="header-link gray-hover" href="">Explore</a>
+                <a class="header-link gray-hover white-color" href="">Marketplace</a>
+                <a class="header-link gray-hover white-color" href="">Explore</a>
             </div>
         </div>
     </div>
@@ -326,7 +326,7 @@
                                 </svg>
                             </div>
                             <div>
-                                <span class="home-page-text test">
+                                <span class="home-page-text">
                                     © 2020 GitHub, Inc.
                                 </span>
                             </div>
@@ -382,6 +382,16 @@
     </div>
 
 </body>
-<script></script>
+<script src="../../work_6_18/jquery-3.5.1.js"></script>
+<script>
+    var w = document.getElementsByClassName("header")[0];
+    var h = document.getElementById("middle-input");
+    var currentWidth = parseInt($(window).width());
+    
+    // if(currentWidth < 850){
+    //     $(h).hide();
+    // }
+    console.log(currentWidth == 850);
+</script>
 
 </html>

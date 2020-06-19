@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="main">
+        <form id="form" action="##" onsubmit="return false">
+            用户名：<br>
+            <input id="name" type="text" name="username">
+            <div id="nameError"></div>
+            密码：<br>
+            <input id="password" type="password" name="userpassword">
+            <div id="passwordError"></div>
+            <input type="submit" onclick="check()" value="登陆">
+        </form>
+    </div>
+</body>
+<script src="../work_6_18/jquery-3.5.1.js"></script>
+<script>
+    var name1 = document.getElementById("name");
+    var password1 = document.getElementById("password");
+    var regname = /^[\w-]{4,16}$/;
+    var regpassword = new RegExp('^(?=.*[0-9].*)(?=.*[A-Z].*)(?=.*[a-z].*)(?=.*(?=[\x21-\x7e]+)[^A-Za-z0-9].*).{6,}$');
+    function check(){
+        var nameid = document.getElementById("nameError");
+        var passwordid = document.getElementById("passwordError");
+        if (!regname.test(name1.value) || !regpassword.test(password1.value)) {
+            if (!regname.test(name1.value)) {
+                nameid.innerHTML = "用户名格式输入错误";
+            }else{
+                nameid.innerHTML ="";
+            }
+            if (!regpassword.test(password1.value)) {
+                passwordid.innerHTML = "密码格式输入错误";
+            }else{
+                passwordid.innerHTML = "";
+            }
+        } else {
+            nameid.innerHTML = "";
+            passwordid.innerHTML = "";
+            ajax();
+        }
+    }
+
+    function ajax() {
+        $.ajax({
+            type: "POST",
+            // dataType: "json",
+            // async: true,
+            url: 'http://192.168.10.73:10001/banyuan/form/action',
+            // data: $('#form').serialize(),
+            data: {
+                username: $('#name').val(),
+                password: $('#password').val(), 
+            },
+            success: function (result) {
+                console.log($('#name').val());
+                console.log($('#password').val());
+                console.log(result);
+                alert(result.status);
+            },
+            error: function (error) {
+                alert('失败');
+            }
+        });
+    }
+</script>
+
+</html>

@@ -129,8 +129,8 @@ select * from employee order by dept_no desc, e_salary desc;
 -- 在employee表中，查询员工姓名以字母’A’或’S’开头的员工的信息。
 select * from employee where e_name like "A%" or e_name like "S%";
 -- 在employee表中，查询到目前为止，工龄大于等于10年的员工信息。
-select e.*,timestampdiff(year,hireDate,now()) as workTime from employee e where timestampdiff(year,hireDate,now()) >= 10;
-
+select *,timestampdiff(year,hireDate,now()) as workAge from employee where timestampdiff(year,hireDate,now()) >= 10;
+select timestampdiff(year,hireDate,now()) from employee ;
 CREATE TABLE customers
 (
     c_id      int       NOT NULL AUTO_INCREMENT,
@@ -211,9 +211,9 @@ VALUES (30001, 1, 'a1', 10, 5.2),
        (30005, 4, 'm1', 5, 14.99);
 select * from orderitems;
 -- 查询订单价格大于100的订单号和总订单价格
-select *,(quantity*item_price)as '订单总价' from orderitems where quantity*item_price > 100;
+select o_num,sum(item_price*quantity)as sum from orderitems group by o_num having sum>100;
 -- 将以上内容使用ORDER BY关键字按总订单价格排序显示结果
-select *,(quantity*item_price)as '订单总价' from orderitems order by quantity*item_price;
+select o_num,sum(item_price*quantity)as sum from orderitems group by o_num having sum>100 order by sum;
 -- 显示fruits表查询结果的前4行
 select * from fruits limit 4;
 -- 在fruits表中，使用LIMIT子句，返回从第5个记录开始的，行数长度为3的记录
@@ -231,7 +231,7 @@ select o_num,sum(quantity)as 总量 from orderitems where o_num = 30005;
 select o_num,sum(quantity)as 总量 from orderitems group by o_num;
 -- 在fruits表中，查询s_id=103的供应商的水果价格的平均值
 select * from fruits order by s_id;
-select s_id,avg(f_price) from fruits where s_id = 103;
+select s_id,avg(f_price) from fruits where s_id = 103; 
 -- 在fruits表中，查询每一个供应商的水果价格的平均值
 select s_id,avg(f_price) from fruits group by s_id;
 -- 在fruits表中查找市场上价格最高的水果

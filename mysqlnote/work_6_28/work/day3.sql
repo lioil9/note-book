@@ -1,4 +1,4 @@
-drop database day3_homework;
+-- drop database day3_homework;
 create database day3_homework;
 use day3_homework;
 
@@ -31,6 +31,8 @@ CREATE TABLE tb_emp1
 );
 -- 建立名为tb_dept1的表，结构和tb_dept表结构一致，将tb_emp外键删除，关联到tb_dept1上
 create table tb_dept1 like tb_dept;
+alter table tb_emp drop foreign key tb_emp_ibfk_1;
+alter table tb_emp add foreign key(deptId) references tb_dept1(id);
 
 
 CREATE TABLE fruits
@@ -141,15 +143,25 @@ VALUES (30001, '2008-09-01', 10001),
        (30004, '2008-10-03', 10005),
        (30005, '2008-10-08', 10001);
 -- 查询供应f_id= ‘a1’的水果供应商提供的其他水果种类，内连接
+select f1.* from fruits f1 inner join fruits f2 on f1.s_id = f2.s_id where f2.f_id = 'a1';
 -- 在customers表和orders表中，查询所有客户，包括没有订单的客户，左连接
+select * from customers left outer join orders on customers.c_id = orders.c_id;
 -- 在customers表和orders表中，查询所有订单，包括没有客户的订单，右连接
+select * from customers right outer join orders on customers.c_id = orders.c_id;
 -- 在customers表和orders表中，使用INNER JOIN语法查询customers表中ID为10001的客户的订单信息
+select * from customers inner join orders on customers.c_id = orders.c_id and customers.c_id = 10001;
 -- 查询fruits表所有信息附加一列suppliers的供应商名称，使用INNER JOIN语法进行内连接查询，并对查询结果排序
+select f.*,s.s_name from fruits f inner join suppliers s on f.s_id = s.s_id order by f.s_id;
 -- 查询所有价格小于9的水果的信息，查询s_id等于101和103所有的水果的信息，使用UNION连接查询结果
+select * from fruits where f_price < 9.0 union select * from fruits where s_id in(101,103);
 -- 查询所有价格小于9的水果的信息，查询s_id等于101和103的所有水果的信息，使用UNION ALL连接查询结果
+select * from fruits where f_price < 9.0 union all select * from fruits where s_id in(101,103);
 -- 为orders表取别名o，查询30001订单的下单日期
+select * from orders o where o.o_num = 30001;
 -- 查询fruits表，为f_name取别名fruit_name，f_price取别名fruit_price，为fruits表取别名f1，查询表中f_price < 8的水果的名称
+select f1.f_name as fruit_name, f1.f_price as fruit_price from fruits f1 where f1.f_price < 8;
 -- 查询suppliers表中字段s_name和s_city，使用CONCAT函数连接这两个字段值，并取列别名为suppliers_title。
+select concat(trim(s_name),',',trim(s_city)) supplier_title from suppliers;
 
 
 CREATE TABLE student
@@ -204,14 +216,28 @@ INSERT INTO score
 VALUES (NULL, 906, '英语', 85);
 
 -- 查询李四的考试科目（c_name）和考试成绩（grade）
+select c_name,grade from student stu inner join score s on stu.id = s.stu_id where stu.name like '李四';
 -- 查询所有学生的信息和考试信息
+select * from student stu left join score s on stu.id = s.stu_id ;
 -- 计算每个学生的总成绩
+select stu.name,sum(s.grade) as 总分 from student stu inner join score s on stu.id = s.stu_id group by s.stu_id;
 -- 计算每个考试科目的平均成绩
+select s.c_name,avg(s.grade) as 平均分 from score s group by s.c_name;
 -- 查询计算机成绩低于95的学生信息
+select stu.*,s.* from student stu inner join score s on stu.id = s.stu_id where s.c_name like '计算机' and s.grade < 95;
 -- 查询同时参加计算机和英语考试的学生的信息
+select a.* from 
+(select b.* from student b 
+inner join score c on b.id = c.stu_id 
+where c.c_name like '计算机') a 
+inner join score d on a.id = d.stu_id 
+where d.c_name like '英语';
 -- 从student表和score表中查询出学生的学号，然后合并查询结果
+select * from student stu inner join score s on stu.id = s.stu_id;
 -- 查询姓张或者姓王的同学的姓名、院系和考试科目及成绩
+select * from student stu inner join score s on s.stu_id = stu.id where stu.name like '张%' or stu.name like '王%';
 -- 查询都是湖南的学生的姓名、年龄、院系和考试科目及成绩
+select * from student stu inner join score s on s.stu_id = stu.id where stu.address like '湖南%';
 
 
 DROP TABLE IF EXISTS `dept`;
@@ -273,22 +299,71 @@ VALUES (1, 700, 1200),
        (3, 1401, 2000),
        (4, 2001, 3000),
        (5, 3001, 9999);
-
+select * from emp order by deptno,sal;
 -- 取得每个部门最高薪水的人员名称
+select a.ename,a.sal,a.deptno from emp a where a.sal = (select max(b.sal) from emp b where a.deptno = b.deptno);  
 -- 哪些人的薪水在部门的平均薪水之上
+select a.* from emp a where a.sal > (select avg(b.sal) from emp b where a.deptno = b.deptno) order by deptno;
 -- 取得部门中(所有人)平均薪水的等级
+select deptno,a.avg_sal,s.grade from 
+(select avg(sal) as avg_sal,deptno from emp group by deptno) a
+inner join salgrade s on a.avg_sal between s.losal and s.hisal;
 -- 取得部门中(所有人)薪水的平均等级
+select b.deptno,avg(b.grade) from
+(
+	select a.sal,a.deptno,s.grade 
+	from emp a 
+	inner join salgrade s 
+	on a.sal between s.losal and s.hisal
+    ) b
+group by b.deptno;
 -- 取得平均薪水最高的部门的编号
+select deptno from emp group by deptno order by avg(sal) desc limit 1;
 -- 求平均薪水的等级最高的部门的部门名称
+select dname from 
+(select deptno from emp group by deptno order by avg(sal) desc limit 1) a
+inner join dept b on a.deptno = b.deptno;
 -- 取得比普通员工的最高薪水还要高的领导人姓名
+select * from emp 
+where empno in (select mgr from emp) and sal >
+(select max(a.sal) from emp a 
+where a.empno not in(select mgr from emp where mgr is not null));
 -- 取得每个薪水等级有多少员工
+select b.grade,count(*) from 
+(select a.sal,s.grade 
+from emp a 
+inner join salgrade s 
+on a.sal between s.losal and s.hisal) b
+group by b.grade;
 -- 列出受雇日期早于其直接上级领导的所有员工编号，姓名、部门名称
+select empno,ename from emp a where hiredate>(select hiredate from emp where empno=a.mgr);
 -- 列出部门名称和这些员工信息同时列出那些没有员工的部门
+select dept.dname,e.* from dept left join emp e on dept.deptno = e.deptno;
 -- 列出至少有五个员工的部门详细信息
+select b.* from 
+(select deptno,count(*) as count from emp group by deptno) a
+inner join dept b on a.deptno = b.deptno where a.count >= 5;
 -- 列出所有“CLERK”(办事员)的姓名及其部门名称，部门人数
+select ename,dname,a.count from emp,dept,(select deptno,count(*) as count from emp group by deptno) a
+where emp.deptno = dept.deptno and job = 'CLERK' and emp.deptno = a.deptno;
 -- 列出最低薪金大于1500的各种工作及从事此工作的全部雇员人数
+select job,count(*) from emp group by job having min(sal) > 1500;
 -- 列出部门在“SALES”<销售部>工作的姓名
+select a.ename,b.* from emp a, dept b where a.deptno = b.deptno and b.dname like 'SALES';
 -- 列出薪金高于公司平均薪金的所有员工、所在的部门、上级领导、雇员的工资等级
+select a.ename,b.dname,c.ename mgr_name,d.grade
+from emp a,dept b,emp c,salgrade d
+where a.deptno=b.deptno and
+a.mgr=c.empno and
+a.sal between d.losal and d.hisal
+and a.sal>(select avg(sal) from emp);
 -- 列出所有与“SCOTT”从事相同工作的所有员工及部门名称
+select e.*,d.dname
+from emp e,dept d
+where e.deptno=d.deptno
+and e.job=(select job from emp where ename='SCOTT')
+and e.ename not like 'SCOTT';
 -- 列出每个部门工作的员工数量，平均工资、平均服务期限
+select deptno,count(*), avg(sal), avg(months_between(sysdate,hiredate)/12) from emp group by deptno;
 -- 列出各个部门MANAGER的最低薪金
+select deptno,min(sal) from emp where job like 'MANAGER' group by deptno;

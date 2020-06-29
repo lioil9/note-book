@@ -10,8 +10,11 @@ Target Server Type    : MYSQL
 Target Server Version : 50711
 File Encoding         : 65001
 
-Date: 2018-04-16 10:28:40
+Date: 2018-04-16 10:28:40news
 */
+
+create database shoppingStreet;
+use shoppingStreet;
 
 SET FOREIGN_KEY_CHECKS=0;
 
@@ -247,6 +250,8 @@ INSERT INTO `product_category` VALUES ('696', '客厅专用', '628', '2', '');
 -- ----------------------------
 -- Table structure for user
 -- ----------------------------
+
+
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` int(20) NOT NULL AUTO_INCREMENT COMMENT '主键',

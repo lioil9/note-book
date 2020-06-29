@@ -161,7 +161,7 @@ select * from orders o where o.o_num = 30001;
 -- 查询fruits表，为f_name取别名fruit_name，f_price取别名fruit_price，为fruits表取别名f1，查询表中f_price < 8的水果的名称
 select f1.f_name as fruit_name, f1.f_price as fruit_price from fruits f1 where f1.f_price < 8;
 -- 查询suppliers表中字段s_name和s_city，使用CONCAT函数连接这两个字段值，并取列别名为suppliers_title。
-select concat(trim(s_name),',',trim(s_city)) supplier_title from suppliers;
+select concat(s_name,',',s_city) suppliers_title from suppliers;
 
 
 CREATE TABLE student
@@ -216,7 +216,7 @@ INSERT INTO score
 VALUES (NULL, 906, '英语', 85);
 
 -- 查询李四的考试科目（c_name）和考试成绩（grade）
-select c_name,grade from student stu inner join score s on stu.id = s.stu_id where stu.name like '李四';
+select c_name,grade from student stu inner join score s on stu.id = s.stu_id where stu.name = '李四';
 -- 查询所有学生的信息和考试信息
 select * from student stu left join score s on stu.id = s.stu_id ;
 -- 计算每个学生的总成绩
@@ -224,14 +224,14 @@ select stu.name,sum(s.grade) as 总分 from student stu inner join score s on st
 -- 计算每个考试科目的平均成绩
 select s.c_name,avg(s.grade) as 平均分 from score s group by s.c_name;
 -- 查询计算机成绩低于95的学生信息
-select stu.*,s.* from student stu inner join score s on stu.id = s.stu_id where s.c_name like '计算机' and s.grade < 95;
+select stu.*,s.* from student stu inner join score s on stu.id = s.stu_id where s.c_name = '计算机' and s.grade < 95;
 -- 查询同时参加计算机和英语考试的学生的信息
 select a.* from 
 (select b.* from student b 
 inner join score c on b.id = c.stu_id 
-where c.c_name like '计算机') a 
+where c.c_name = '计算机') a 
 inner join score d on a.id = d.stu_id 
-where d.c_name like '英语';
+where d.c_name = '英语';
 -- 从student表和score表中查询出学生的学号，然后合并查询结果
 select * from student stu inner join score s on stu.id = s.stu_id;
 -- 查询姓张或者姓王的同学的姓名、院系和考试科目及成绩
@@ -349,7 +349,7 @@ where emp.deptno = dept.deptno and job = 'CLERK' and emp.deptno = a.deptno;
 -- 列出最低薪金大于1500的各种工作及从事此工作的全部雇员人数
 select job,count(*) from emp group by job having min(sal) > 1500;
 -- 列出部门在“SALES”<销售部>工作的姓名
-select a.ename,b.* from emp a, dept b where a.deptno = b.deptno and b.dname like 'SALES';
+select a.ename,b.* from emp a, dept b where a.deptno = b.deptno and b.dname = 'SALES';
 -- 列出薪金高于公司平均薪金的所有员工、所在的部门、上级领导、雇员的工资等级
 select a.ename,b.dname,c.ename mgr_name,d.grade
 from emp a,dept b,emp c,salgrade d
@@ -361,9 +361,9 @@ and a.sal>(select avg(sal) from emp);
 select e.*,d.dname
 from emp e,dept d
 where e.deptno=d.deptno
-and e.job=(select job from emp where ename='SCOTT')
-and e.ename not like 'SCOTT';
+and e.job=(select job from emp where ename = 'SCOTT')
+and e.ename != 'SCOTT';
 -- 列出每个部门工作的员工数量，平均工资、平均服务期限
-select deptno,count(*), avg(sal), avg(months_between(sysdate,hiredate)/12) from emp group by deptno;
+select deptno,count(*), avg(sal), avg(timestampdiff(year,hiredate,now())) from emp group by deptno;
 -- 列出各个部门MANAGER的最低薪金
-select deptno,min(sal) from emp where job like 'MANAGER' group by deptno;
+select deptno,min(sal) from emp where job = 'MANAGER' group by deptno;

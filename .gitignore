@@ -13,4 +13,5 @@
 !*.sql
 !*.pdf
 !*.jar
+!*.ppt
 !.gitignore

@@ -45,8 +45,3 @@
 
 
 
-
-
-
-- https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.27.0.tar.gz
-

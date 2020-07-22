@@ -27,3 +27,10 @@ menuentry "remote reinstall" {
 initrd /initrd.img.remote 
 
 }
+
+
+
+
+
+
+

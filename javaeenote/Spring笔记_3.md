@@ -45,3 +45,17 @@
 
 
 
+
+
+- @Controller 和 @RestController 的区别
+- controller 是return时会通过spring的视图解析器，会返回指定的jsp或者html页面
+- 而 Restcontroller则是Controller + ResponseBody 两个注解的结合，可以返回string类型数据或者json类型的数据
+
+
+
+
+
+
+
+- thymeleaf模板技术，可以通过thymeleaf模版引擎来渲染html页面，
+- 

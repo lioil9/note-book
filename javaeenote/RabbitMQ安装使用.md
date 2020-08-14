@@ -6,3 +6,4 @@
 - localhost:15672
 - guest/guest
 
+后台关闭 sudo ./rabbitmqctl stop
